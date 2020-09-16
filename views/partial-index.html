@@ -1,2 +1,71 @@
 <h1>Home Page</h1>
 <p>Rankings/Topics</p>
+
+<form action="/index" method="POST"> <!--Form Action is The URL where you are sending the data-->
+    <label>Text Input
+        <input type="text" name="demo_input" placeholder="Type Text Here" />
+         ${data.map(ranking => `<li>At ${ranking.topic} I am ${ranking.ranking}</li>`).join('')}
+    </label>
+    <label>HTML 
+        <select name="HTML">
+         <option value="5">Awesome</option>
+         <option value="4">Great</option>
+         <option value="3">Good</option>
+         <option value="2">Okay</option>
+         <option value="1">Poor</option>
+         <option value="0">Unranked</option>
+        </select>
+    </label><br/>
+    <label>CSS
+        <select name="CSS">
+        <option value="5">Awesome</option>
+         <option value="4">Great</option>
+         <option value="3">Good</option>
+         <option value="2">Okay</option>
+         <option value="1">Poor</option>
+         <option value="0">Unranked</option>
+        </select>
+    </label><br/>
+    <label>Express
+        <select name="Express">
+        <option value="5">Awesome</option>
+         <option value="4">Great</option>
+         <option value="3">Good</option>
+         <option value="2">Okay</option>
+         <option value="1">Poor</option>
+         <option value="0">Unranked</option>
+        </select>
+    </label><br/>
+    <label>JavaScript
+        <select name="JavaScript">
+        <option value="5">Awesome</option>
+         <option value="4">Great</option>
+         <option value="3">Good</option>
+         <option value="2">Okay</option>
+         <option value="1">Poor</option>
+         <option value="0">Unranked</option>
+        </select>
+    </label><br/>
+     <label>PostgreSQL
+        <select name="PostgreSQL">
+        <option value="5">Awesome</option>
+         <option value="4">Great</option>
+         <option value="3">Good</option>
+         <option value="2">Okay</option>
+         <option value="1">Poor</option>
+         <option value="0">Unranked</option>
+        </select>
+    </label><br/>
+    <label>Node
+        <select name="Node">
+        <option value="5">Awesome</option>
+         <option value="4">Great</option>
+         <option value="3">Good</option>
+         <option value="2">Okay</option>
+         <option value="1">Poor</option>
+         <option value="0">Unranked</option>
+        </select>
+    </label><br/>
+
+    <button type="submit">Submit Data</button>
+</form>

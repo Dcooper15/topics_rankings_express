@@ -13,7 +13,12 @@ router.get("/", async (req, res) => {
         partials: {
             partial: "partial-languagesRankings"
         }
-    })
-})
+    });
+});
+
+router.post("/", async (req, res) => {
+    console.log(req.body);
+    res.status(200).send("OK").end();
+});
 
 module.exports = router;

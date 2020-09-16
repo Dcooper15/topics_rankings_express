@@ -1,4 +1,12 @@
 <h1>${title}</h1>
-<ul>
-    ${data.map(ranking => `<li>At ${ranking.name} I am ${ranking.ranking}</li>`).join('')}
-</ul>
+<form action="/languagesRankings" method="POST"> <!--Form Action is The URL where you are sending the data-->
+    <label>Text Input
+        <input type="text" name="demo_input" placeholder="Type Text Here" />
+         <ul>
+            ${data.map(ranking => `<li>At ${ranking.name} I am ${ranking.ranking}</li>`).join('')}
+        </ul>
+    </label>
+    <button type="submit">Submit Data</button>
+</form>
+   
+
