@@ -3,30 +3,37 @@ const router = express.Router();
 
 const rankingsModel = require("../models/rankingsModel");
 
-router.get("/", async (req, res) => {
-    const topicsData = await topicsModel.getAll();
-    res.render("template", {
+const renderPage = async res => {
+    const rankingsData = await rankingsModel.getAll();
+    const statusData = await rankingsModel.getAllStatuses();
+    return res.render("template", {
         locals: {
             title: "Topics",
-            data: topicsData
+            data: rankingsData,
+            statusData: statusData
         },
         partials: {
             partial: "partial-index"
         }
-    })
-})
+    });
+}
+ 
 
 
-
-router.get("/", async function (req, res, next) {
+router.get("/", async (req, res, next) => {
     renderPage(res);
 });
 
-router.post("/index", async (req, res) => {
+
+
+router.post("/", async (req, res) => {
     console.log(req.body);
-    const dbResponse = rankingsModel.updateStatus(1, "HTML");
-    console.log("my database response is:", dbResponse);
-    res.status(200).send("OK").end();
+    for (let key in req.body) {
+        await rankingsModel.updateStatus(req.body[key], key);
+       
+
+    }
+    renderPage(res);
 });
 
 

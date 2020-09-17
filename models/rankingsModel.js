@@ -9,18 +9,28 @@ class rankingsList {
 
     static async getAll() {
         try {
-            const response = await db.any(`SELECT * FROM topics INNER JOIN ranking_scale ON topics.ranking_id = ranking_scale.id;`)
+            const response = await db.any(`SELECT * FROM topics INNER JOIN ranking_scale ON topics.ranking_id = ranking_scale.id;`);
+            console.log(response);
             return response;
         } catch (error) {
             return error.message;
         }
     }
  static async getAllStatuses() {
+     try {
+        const response = await db.any(`SELECT * FROM ranking_scale;`);
+        return response;
+     } catch (error) {
+         console.error("ERROR: ", error);
+         return error;
+     }
 
  }
+
+
  static async updateStatus(ranking_id, topic) {
      try {
-        const response = await db.result(`UPDATE topics SET ranking_id = $1 WHERE topic = $2`, [ranking_id, topic]);
+        const response = await db.result(`UPDATE topics SET ranking_id = $1 WHERE topic = $2;`, [ranking_id, topic]);
         return response;
      } catch (error) {
          console.error("error:", error);
