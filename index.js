@@ -26,9 +26,9 @@ server.listen(port, hostname, () => {
 const rootController = require("./routes/index");
 const rankingsController = require("./routes/rankings");
 const topicsController = require("./routes/topics");
-const languagesRankingsController = require("./routes/languagesRankings");
+//const languagesRankingsController = require("./routes/languagesRankings");
 
 app.use("/", rootController);
 app.use("/rankings", rankingsController);
 app.use("/topics", topicsController);
-app.use("/languagesRankings", languagesRankingsController);
+//app.use("/languagesRankings", languagesRankingsController);
